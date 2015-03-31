@@ -1,0 +1,20 @@
+$stat-row {
+  display: block;
+  height: 1.8em;
+  position: relative;
+}
+
+.stat {
+  @extend $stat-row;
+  box-shadow: 0 1px 0 rgba($dark-blue, .1);
+
+  .right {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+}
+
+.empty {
+  @extend $stat-row;
+}

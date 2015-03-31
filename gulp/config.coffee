@@ -28,7 +28,7 @@ config.jsVendor =
 config.jade =
   src: path.join(config.BASE_APP_PATH, "index.jade")
   dest: config.BASE_GENERATED_PATH
-  watch: path.join(config.BASE_APP_PATH, "index.jade")
+  watch: path.join(config.BASE_APP_PATH, "**", "*.jade")
 
 config.ejs =
   src: path.join(config.BASE_APP_PATH, "**", "*.ejs")
