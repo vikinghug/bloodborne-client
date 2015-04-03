@@ -1,0 +1,24 @@
+$pseudo-base {
+  content: '';
+  position: absolute;
+  left: 10px;
+}
+
+triangle-color = $red;
+
+.vote {
+  text-align: center;
+
+  &:after {
+    @extend $pseudo-base;
+    border: 10px solid transparent;
+    border-top-color: triangle-color;
+    top: 30px;
+  }
+  &:before {
+    @extend $pseudo-base;
+    border: 10px solid transparent;
+    border-bottom-color: triangle-color;
+    top: -20px;
+  }
+}

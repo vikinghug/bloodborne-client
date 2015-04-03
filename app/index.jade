@@ -1,16 +1,4 @@
-doctype html
-html
-  head
-    title ux-prototype
-    link(rel='stylesheet' href='/assets/css/main.css')
-  body
-    include ./templates/navigation
-    include ./templates/header
+extends layout
 
-    .builder
-      include ./templates/builder
-
-    include ./templates/footer
-
-    // script(src='/assets/js/vendor.js')
-    // script(src='/assets/js/app.js')
+block content
+  h1 INDEX

@@ -1,0 +1,61 @@
+extends ../layout
+
+mixin classOption(name)
+  option(value=name)= name
+
+mixin stat(name, value)
+  .stat
+    label= name
+    .right= value
+
+block content
+    .row
+      .small-12.columns
+        .builder
+          .row
+            .small-12.columns
+              label Starting Class
+              select#class(onchange='', size='1')
+                +classOption('Milquetoast')
+                +classOption('Lone Survivor')
+                +classOption('Troubled Childhood')
+                +classOption('Violent Past')
+                +classOption('Professional')
+                +classOption('Military Veteran')
+                +classOption('Noble Scion')
+                +classOption('Cruel Fate')
+                +classOption('Waste of Skin')
+          .row
+            .small-12.medium-4.columns
+              .empty
+              .empty
+              +stat("Level", 10)
+              +stat("Blood Echoes", 10)
+              .empty
+              +stat("Insight", 10)
+              .empty
+              +stat("Vitality", 10)
+              +stat("Endurance", 10)
+              +stat("Strength", 10)
+              +stat("Skill", 10)
+              +stat("Bloodtinge", 10)
+              +stat("Arcane", 10)
+
+            .small-12.medium-4.columns
+              +stat("HP", 10)
+              +stat("Stamina", 10)
+              +stat("Discovery", 10)
+              .empty
+              .empty
+              .empty
+              .empty
+              .empty
+              .empty
+              +stat("Physical DEF", 10)
+              +stat("Slow Poison RES", 10)
+              +stat("Rapid Poison RES", 10)
+              +stat("Frenzy RES", 10)
+              +stat("Beasthood", 10)
+
+            .small-12.medium-4.columns
+              | Stuff

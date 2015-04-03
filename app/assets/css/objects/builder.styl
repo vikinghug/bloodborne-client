@@ -1,0 +1,26 @@
+$stat-row {
+  display: block;
+  height: 1.8em;
+  position: relative;
+}
+
+.builder {
+  box-shadow: 0 0 0 3px $light-blue;
+  padding: 10px;
+  display: block;
+
+  .stat {
+    @extend $stat-row;
+    box-shadow: 0 1px 0 rgba($light-blue, .3);
+
+    .right {
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+  }
+
+  .empty {
+    @extend $stat-row;
+  }
+}

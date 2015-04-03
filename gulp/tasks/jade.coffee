@@ -1,8 +1,14 @@
-jade = require("gulp-jade")
+gulpJade = require("gulp-jade")
 
 # Jade
 gulp.task "jade", ->
   gulp.src(config.jade.src)
     .pipe(plumber())
-    .pipe(jade(pretty: true))
+    .pipe(gulpJade({
+      pretty: true
+      data:
+        capitalize: (str) ->
+          str.charAt(0).toUpperCase() + str.slice(1)
+        random: require('faker')
+    }))
     .pipe gulp.dest(config.jade.dest)
