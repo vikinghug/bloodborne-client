@@ -1,3 +1,4 @@
+babelify   = require("babelify")
 browserify = require("browserify")
 buffer     = require("vinyl-buffer")
 rename     = require("gulp-rename")
@@ -7,21 +8,9 @@ uglify     = require("gulp-uglify")
 
 # Task
 gulp.task "js", ->
-  jsStream = browserify(config.js.src, {
-    extensions: [".js"]
-    debug: true
-  }).bundle()
-
-  # standard code
-  jsStream
-    .pipe(plumber())
-    .pipe(source(config.js.src))
-    .pipe(buffer())
-    .pipe(sourcemaps.init({loadMaps: true}))
-    .pipe(rename("app.js"))
-    .pipe(sourcemaps.write("./"))
-    .pipe(gulp.dest(config.js.dest))
-    .pipe(livereload())
+  jsStream = browserify(config.js.src)
+    .transform(babelify)
+    .bundle()
 
   # minified code
   jsStream
@@ -33,6 +22,17 @@ gulp.task "js", ->
     .pipe(rename("app.min.js"))
     .pipe(sourcemaps.write("./"))
     .pipe(gulp.dest(config.js.dest))
+
+  # standard code
+  jsStream
+    .pipe(plumber())
+    .pipe(source(config.js.src))
+    .pipe(buffer())
+    .pipe(sourcemaps.init({loadMaps: true}))
+    .pipe(rename("app.js"))
+    .pipe(sourcemaps.write("./"))
+    .pipe(gulp.dest(config.js.dest))
+    .pipe(livereload())
     .pipe(livereload())
 
   return jsStream
