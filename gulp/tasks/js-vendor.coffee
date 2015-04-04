@@ -18,9 +18,8 @@ gulp.task "jsVendor", ->
     .pipe(plumber())
     .pipe(source(config.jsVendor.src))
     .pipe(buffer())
-    .pipe(sourcemaps.init({loadMaps: true}))
     .pipe(rename("vendor.js"))
-    .pipe(sourcemaps.write("./"))
     .pipe(gulp.dest(config.jsVendor.dest))
+    .pipe(livereload())
 
   return jsVendorStream

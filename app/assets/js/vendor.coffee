@@ -1,3 +1,3 @@
 require('jquery')
-# require('handlebars')
+require('angular')
 # require('ember')

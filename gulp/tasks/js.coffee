@@ -8,10 +8,9 @@ uglify     = require("gulp-uglify")
 # Task
 gulp.task "js", ->
   jsStream = browserify(config.js.src, {
-    extensions: [".coffee"]
+    extensions: [".js"]
     debug: true
-  }).transform("coffeeify")
-    .bundle()
+  }).bundle()
 
   # standard code
   jsStream

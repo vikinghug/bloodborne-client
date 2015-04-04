@@ -14,7 +14,7 @@ config.stylus =
   watch: path.join(config.BASE_ASSETS_PATH, "css", "**", "*.styl*")
 
 config.js =
-  src: path.join(config.BASE_ASSETS_PATH, "js", "app.coffee")
+  src: path.join(config.BASE_ASSETS_PATH, "js", "app.js")
   dest: path.join(config.BASE_GENERATED_PATH, 'assets', 'js')
   watch: [
     path.join(config.BASE_ASSETS_PATH, "js", "**", "*.{coffee,js}")
@@ -23,7 +23,7 @@ config.js =
 
 config.jsVendor =
   src: path.join(config.BASE_ASSETS_PATH, "js", "vendor.coffee")
-  dest: path.join(config.BASE_GENERATED_PATH, 'js')
+  dest: path.join(config.BASE_GENERATED_PATH, "assets", 'js')
   watch: path.join(config.BASE_ASSETS_PATH, "js", "vendor.coffee")
 
 config.jade =
