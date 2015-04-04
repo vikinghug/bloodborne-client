@@ -6,3 +6,4 @@ gulp.task 'ejs', ->
     .pipe(plumber())
     .pipe(ejs())
     .pipe(gulp.dest(config.ejs.dest))
+    .pipe(livereload())

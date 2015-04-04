@@ -5,13 +5,16 @@ $stat-row {
 }
 
 .builder {
-  box-shadow: 0 0 0 3px $light-blue;
-  padding: 10px;
+  background: lighten($black, 5%);
   display: block;
+
+  .columns {
+    padding: 40px;
+  }
 
   .stat {
     @extend $stat-row;
-    box-shadow: 0 1px 0 rgba($light-blue, .3);
+    box-shadow: 0 1px 0 rgba($cream, .2);
 
     .right {
       position: absolute;

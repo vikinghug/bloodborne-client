@@ -1,7 +1,7 @@
 $pseudo-base {
   content: '';
   position: absolute;
-  left: 10px;
+  left: 30px;
 }
 
 triangle-color = $red;
@@ -13,12 +13,13 @@ triangle-color = $red;
     @extend $pseudo-base;
     border: 10px solid transparent;
     border-top-color: triangle-color;
-    top: 30px;
+    top: 44px;
   }
+
   &:before {
     @extend $pseudo-base;
     border: 10px solid transparent;
     border-bottom-color: triangle-color;
-    top: -20px;
+    top: 0;
   }
 }

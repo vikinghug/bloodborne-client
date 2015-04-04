@@ -1,27 +1,22 @@
 findPort   = require("find-port")
-livereload = require("gulp-livereload")
 watch = require("gulp-watch")
 nodemonConfig = require(path.join(config.ROOT_PATH, 'nodemon.json'))
 
 # Watch
 gulp.task "watch", ->
   if nodemonConfig.env.NODE_ENV == "development"
-    server = livereload()
-
     findPort [35729], (ports) ->
-      console.log "wtf"
       unless ports.length > 0
         gutil.log "[LiveReload] Can't start LiveReload => ALREADY RUNNING".red
       else
-        console.log "hello"
-        server = livereload.listen()
-        console.log server
+        livereload.listen()
+        server = livereload.server
         if server
           msg = "[LiveReload] Now listening on port: " + server.port
           gutil.log msg.green
           livereload.changed()
-        watch path.join(config.BASE_GENERATED_PATH, "**", "*"), ->
-          livereload.changed()
+        # watch path.join(config.BASE_GENERATED_PATH, "**", "*"), (prr) ->
+        #   livereload.changed(config.BASE_GENERATED_PATH)
 
   watch(config.stylus.watch,   -> gulp.start("stylus"))
   watch(config.js.watch,       -> gulp.start("js"))

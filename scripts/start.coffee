@@ -10,7 +10,6 @@ if env == "production"
     run "gulp", ->
       run "coffee lib/webserver.coffee --start"
 else if env == "development"
-  run "gulp watch"
   run "gulp server"
 else
   console.log "I have no idea what environment this is..."

@@ -12,3 +12,4 @@ gulp.task "jade", ->
         random: require('faker')
     }))
     .pipe gulp.dest(config.jade.dest)
+    .pipe(livereload())

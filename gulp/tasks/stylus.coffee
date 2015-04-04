@@ -13,6 +13,7 @@ gulp.task 'stylus', ->
     .pipe(stylus(use: sumi()))
     .pipe(sourcemaps.write('./'))
     .pipe(gulp.dest(config.stylus.dest))
+    .pipe(livereload())
 
   return gulp.src(config.stylus.src, {base: config.BASE_APP_PATH})
     .pipe(plumber())
@@ -22,3 +23,4 @@ gulp.task 'stylus', ->
     .pipe(minifycss())
     .pipe(sourcemaps.write('./'))
     .pipe(gulp.dest(config.stylus.dest))
+    .pipe(livereload())

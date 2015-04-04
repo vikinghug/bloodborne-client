@@ -19,8 +19,11 @@ mixin build(name)
         +stat("Skill", 10)
         +stat("Bloodtinge", 10)
         +stat("Arcane", 10)
-      .summary
-        p= random.lorem.paragraph()
+      // .summary
+      //   p= random.lorem.paragraph()
+      
+      .comments= Math.floor(Math.random() * 457)
+
     
 
 mixin stat(name, value)

@@ -22,6 +22,7 @@ gulp.task "js", ->
     .pipe(rename("app.js"))
     .pipe(sourcemaps.write("./"))
     .pipe(gulp.dest(config.js.dest))
+    .pipe(livereload())
 
   # minified code
   jsStream
@@ -33,5 +34,6 @@ gulp.task "js", ->
     .pipe(rename("app.min.js"))
     .pipe(sourcemaps.write("./"))
     .pipe(gulp.dest(config.js.dest))
+    .pipe(livereload())
 
   return jsStream
