@@ -1,0 +1,96 @@
+$panel-list {
+  list-style-type: none;
+
+  > .item {
+    background: lighten($black, 5%);
+    margin-top: 4px;
+    position: relative;
+
+    // &:first-child { margin-top: 10px; }
+
+    .left {
+      background: lighten($black, 2%);
+      display: inline-block;
+      height: 100%;
+      padding-top: 16px;
+      left: 0;
+      vertical-align: middle;
+      width: 80px;
+      position: absolute;
+    }
+
+    .right {
+      display: inline-block;
+      height: 100%;
+      right: 0;
+      vertical-align: middle;
+      width: 80px;
+      position: absolute;
+
+      .comments {
+        z-index: 10;
+        font-size: 30px;
+        margin-top: -1em;
+        padding-right: 20px;
+        position: absolute;
+        right: 0;
+        top: 50%;
+      }
+    }
+
+    .content {
+      display: block;
+      line-height: 1.2;
+      margin-left: 80px;
+      margin-right: 80px;
+      padding: 15px;
+    }
+  }
+
+  .right { 
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
+}
+
+.panel-list {
+  @extend $panel-list;
+
+  &.builds {
+
+    .item {
+      .stats {
+        display: block;
+        padding-bottom: 12px;
+      }
+    }
+  }
+
+  &.dungeons {
+    .code {
+      color: rgba($white, .4);
+      font-size: 14px;
+    }
+
+    .items {
+      list-style-type: none;
+      font-size: 14px;
+      padding: 0;
+
+      > .item {
+        display: inline-block;
+        position: relative;
+
+        &:after {
+          content: ',';
+          display: inline-block;
+          right: 0;
+        }
+
+        &:last-child:after { display: none; }
+      }
+    }
+  }
+}
