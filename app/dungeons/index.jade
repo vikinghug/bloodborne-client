@@ -1,4 +1,3 @@
-extends ../layout
 
 mixin item-loop(max)
   - i = 0
@@ -31,8 +30,7 @@ mixin dungeon(name, code)
 mixin item(item)
   li.item= item 
 
-block content
-  .row
-    .small-12.columns
-      ul.panel-list.dungeons
-        +dungeon-loop(30)
+.row
+  .small-12.columns
+    ul.panel-list.dungeons
+      +dungeon-loop(30)
