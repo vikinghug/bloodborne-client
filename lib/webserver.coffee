@@ -13,7 +13,7 @@ mapper    = require('./mapper')
 # Function to load files from our data folder
 getDataFile = (file) ->
   try
-    filepath = path.join(basePath, 'data', file)
+    filepath = path.join(dataPath, file)
     doc = yaml.safeLoad(fs.readFileSync(filepath, 'utf8')) or {}
   catch err
     console.log(err)
@@ -21,6 +21,7 @@ getDataFile = (file) ->
 app           = express()
 webserver     = http.createServer(app)
 basePath      = path.join(__dirname, '..')
+dataPath      = path.join(basePath, 'data')
 generatedPath = path.join(basePath, '.generated')
 assetsPath    = path.join(generatedPath, 'assets')
 vendorPath    = path.join(basePath, 'bower_components')
@@ -62,9 +63,10 @@ server = (options = {}) ->
 
 
   # Configure the express server
-  app.engine('html', require('hbs').__express)
+  app.engine('html', require('ejs').renderFile)
   app.set('view engine', 'html')
   app.use(favicon(faviconPath))
+  app.use('/data', express.static(dataPath))
   app.use('/assets', express.static(assetsPath))
   app.use('/vendor', express.static(vendorPath))
 

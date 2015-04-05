@@ -10,7 +10,6 @@ gulp.task "jsVendor", ->
     extensions: [".coffee"]
     debug: true
   }).transform("coffeeify")
-    .transform("browserify-shim")
     .bundle()
 
   # standard code
