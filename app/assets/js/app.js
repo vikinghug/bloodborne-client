@@ -17,5 +17,18 @@ angular.module('Bloodborne', [
     "url": "/builds",
     templateUrl: "builds/index.html",
     controller: 'Bloodborne.BuildCtrl'
+  })
+  .state("builds.show", {
+    "url": "/show",
+    templateUrl: "builds/show.html"
+  })
+  .state("dungeons", {
+    "url": "/dungeons",
+    templateUrl: "dungeons/index.html",
+    controller: 'Bloodborne.DungeonCtrl'
+  })
+  .state("dungeons.show", {
+    "url": "/show",
+    templateUrl: "dungeons/show.html"
   });
 });
