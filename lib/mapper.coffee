@@ -18,7 +18,7 @@ mapper =
     return obj
 
   getPath: (filepath, tree) ->
-    filepath = filepath.replace(/(^\/|\/$)/g, '')
+    filepath = filepath.replace(/(^\/|\/$|\.html)/g, '')
     split = filepath.split(path.sep)
 
     map = tree
