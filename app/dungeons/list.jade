@@ -1,0 +1,34 @@
+
+mixin item-loop(max)
+  - i = 0
+  - count = random.random.number({min: 1, max: max})
+  while i < count
+    - item = random.hacker.adjective() + " " + random.hacker.ingverb() + " " + random.hacker.noun()
+    +item(item)
+    - i++
+
+mixin dungeon-loop(count)
+  - n = 0
+  while n < count
+    +dungeon(random.company.catchPhrase(), n)
+    - n++
+
+mixin dungeon(name, id)
+  li.item
+    .left
+      .vote= random.random.number({min: 17, max: 80})
+    .content
+      .title
+        a(href="/#dungeons/show")= name
+      - str = random.internet.password()
+      .code= str.replace('_','').toUpperCase()
+      ul.items
+        +item-loop(4)
+    .right
+      .comments= random.random.number({min: 3, max: 80})
+
+mixin item(item)
+  li.item= item 
+
+ul.panel-list.dungeons
+  +dungeon-loop(30)

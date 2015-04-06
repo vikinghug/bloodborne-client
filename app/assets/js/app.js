@@ -14,21 +14,41 @@ angular.module('Bloodborne', [
 .config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
   .state("builds", {
-    "url": "/builds",
+    url: "/builds",
     templateUrl: "builds/index.html",
     controller: 'Bloodborne.BuildCtrl'
   })
   .state("builds.show", {
-    "url": "/show",
+    url: "/show",
     templateUrl: "builds/show.html"
   })
   .state("dungeons", {
-    "url": "/dungeons",
-    templateUrl: "dungeons/index.html",
-    controller: 'Bloodborne.DungeonCtrl'
+    url: "/dungeons",
+    abstract: true,
+    templateUrl: "dungeons/index.html"
+  })
+  .state("dungeons.index", {
+    url: "",
+    views: {
+      "navigation": {
+        templateUrl: "dungeons/navigation.html"
+      },
+      "mainContent": {
+        templateUrl: "dungeons/list.html",
+        controller: 'Bloodborne.DungeonCtrl'
+      }
+    }
   })
   .state("dungeons.show", {
-    "url": "/show",
-    templateUrl: "dungeons/show.html"
+    // url: "/show/:id",
+    url: "/show",
+    views: {
+      "navigation": {
+        templateUrl: "dungeons/navigation.html",
+      },
+      "mainContent": {
+        templateUrl: "dungeons/show.html"
+      }
+    }
   });
 });
