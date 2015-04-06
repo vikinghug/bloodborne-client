@@ -2,9 +2,11 @@ require('babel/polyfill');
 
 // import Services from './services';
 import Controllers from './controllers';
+import Services from './services';
 
 angular.module('Bloodborne', [
   'ui.router',
+  'Bloodborne.Services',
   'Bloodborne.Controllers'
 ])
 .run(function() {
@@ -38,17 +40,15 @@ angular.module('Bloodborne', [
   .state("dungeons", {
     url: "/dungeons",
     abstract: true,
-    templateUrl: "dungeons/index.html"
+    templateUrl: "dungeons/index.html",
+    controller: 'Bloodborne.DungeonCtrl'
   })
   .state("dungeons.index", {
     url: "",
     views: {
       "navigation": {
         templateUrl: "dungeons/list.html",
-        controller: 'Bloodborne.DungeonCtrl'
       },
-      "mainContent": {
-      }
     }
   })
   .state("dungeons.show", {
@@ -56,10 +56,10 @@ angular.module('Bloodborne', [
     views: {
       "navigation": {
         templateUrl: "dungeons/list.html",
-        controller: 'Bloodborne.DungeonCtrl'
       },
       "mainContent": {
-        templateUrl: "dungeons/show.html"
+        templateUrl: "dungeons/show.html",
+        controller: 'Bloodborne.DungeonCtrl',
       }
     }
   });

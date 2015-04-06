@@ -57,6 +57,7 @@
     "serve-favicon": "^2.2.0",
     "stylus": "^0.50.0",
     "sumi-e": "^0.1.4",
+    "underscore": "^1.8.3",
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0",
     "win-spawn": "^2.0.0",
@@ -71,7 +72,9 @@
     "url": "https://github.com/itsthatguy/firepit.git"
   },
   "browserify": {
-    "transform": ["browserify-shim"]
+    "transform": [
+      "browserify-shim"
+    ]
   },
   "browser": {
     "angular": "./bower_components/angular/angular.js",
@@ -79,9 +82,11 @@
   },
   "browserify-shim": {
     "angular": {
-      "depends": [ "jquery:$" ]
+      "depends": [
+        "jquery:$"
+      ]
     },
-    "angular-ui-router": { 
+    "angular-ui-router": {
       "depends": "angular"
     }
   }
