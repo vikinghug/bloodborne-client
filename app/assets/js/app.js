@@ -24,23 +24,24 @@ angular.module('Bloodborne', [
   .state("builds.index", {
     url: "",
     views: {
-      mainContent: {
-        templateUrl: "builds/index.html"
-      },
       navigation: {
         templateUrl: "builds/list.html",
+      },
+      mainContent: {
+        templateUrl: "builds/index.html"
       },
     }
   })
   .state("builds.show", {
     url: "/:id",
     views: {
-      mainContent: {
-        templateUrl: "builds/show.html"
-      },
       "navigation": {
         templateUrl: "builds/list.html",
-      }
+      },
+      mainContent: {
+        controller: 'Bloodborne.BuildCtrl',
+        templateUrl: "builds/show.html"
+      },
     }
   })
   .state("dungeons", {

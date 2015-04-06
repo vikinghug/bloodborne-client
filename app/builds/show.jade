@@ -11,6 +11,7 @@ mixin stat(name, value)
     .builder
       .row
         .small-12.columns
+          p {{ build }}
           label Starting Class
           select#class(onchange='', size='1')
             +classOption('Milquetoast')

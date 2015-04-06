@@ -1,10 +1,17 @@
 export default function(
     $scope,
-    $http,
+    $stateParams,
+    BuildService,
     CONFIG) {
 
-  $http.get('/data/builds.js')
-  .then(function(res) {
-    $scope.builds = res.data;
+  BuildService.all().then(function(data) {
+    $scope.builds = data;
   });
+
+  if ($stateParams.id !== undefined) {
+    BuildService.find($stateParams.id).then(function(data) {
+      $scope.build = data;
+      console.log($scope.build);
+    });
+  }
 } 
