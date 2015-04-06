@@ -1,5 +1,5 @@
 mixin classOption(name)
-  option(value=name)= name
+  option(value=name selected=name)= name
 
 mixin stat(name, value)
   .stat
@@ -11,9 +11,8 @@ mixin stat(name, value)
     .builder
       .row
         .small-12.columns
-          p {{ build }}
           label Starting Class
-          select#class(onchange='', size='1')
+          select#class(onchange='' size='1' ng-model="build.class")
             +classOption('Milquetoast')
             +classOption('Lone Survivor')
             +classOption('Troubled Childhood')
@@ -27,33 +26,33 @@ mixin stat(name, value)
         .small-12.medium-4.columns
           .empty
           .empty
-          +stat("Level", 10)
-          +stat("Blood Echoes", 10)
+          +stat("Level", '{{build.level}}')
+          +stat("Blood Echoes", '{{build.bloodEchoes}}')
           .empty
-          +stat("Insight", 10)
+          +stat("Insight", '{{build.insight}}')
           .empty
-          +stat("Vitality", 10)
-          +stat("Endurance", 10)
-          +stat("Strength", 10)
-          +stat("Skill", 10)
-          +stat("Bloodtinge", 10)
-          +stat("Arcane", 10)
+          +stat("Vitality", '{{build.vitality}}')
+          +stat("Endurance", '{{build.endurance}}')
+          +stat("Strength", '{{build.strength}}')
+          +stat("Skill", '{{build.skill}}')
+          +stat("Bloodtinge", '{{build.bloodtinge}}')
+          +stat("Arcane", '{{build.arcane}}')
 
         .small-12.medium-4.columns
-          +stat("HP", 10)
-          +stat("Stamina", 10)
-          +stat("Discovery", 10)
+          +stat("HP", '--')
+          +stat("Stamina", '--')
+          +stat("Discovery", '--')
           .empty
           .empty
           .empty
           .empty
           .empty
           .empty
-          +stat("Physical DEF", 10)
-          +stat("Slow Poison RES", 10)
-          +stat("Rapid Poison RES", 10)
-          +stat("Frenzy RES", 10)
-          +stat("Beasthood", 10)
+          +stat("Physical DEF", '--')
+          +stat("Slow Poison RES", '--')
+          +stat("Rapid Poison RES", '--')
+          +stat("Frenzy RES", '--')
+          +stat("Beasthood", '--')
 
         .small-12.medium-4.columns
           | Stuff
