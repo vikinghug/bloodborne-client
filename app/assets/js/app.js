@@ -44,11 +44,10 @@ angular.module('Bloodborne', [
     url: "",
     views: {
       "navigation": {
-        templateUrl: "dungeons/navigation.html"
-      },
-      "mainContent": {
         templateUrl: "dungeons/list.html",
         controller: 'Bloodborne.DungeonCtrl'
+      },
+      "mainContent": {
       }
     }
   })
@@ -56,7 +55,8 @@ angular.module('Bloodborne', [
     url: "/:id",
     views: {
       "navigation": {
-        templateUrl: "dungeons/navigation.html",
+        templateUrl: "dungeons/list.html",
+        controller: 'Bloodborne.DungeonCtrl'
       },
       "mainContent": {
         templateUrl: "dungeons/show.html"
