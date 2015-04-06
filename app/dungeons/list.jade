@@ -11,8 +11,6 @@ mixin item(item)
 
 ul.panel-list.dungeons
   li.item(ng-repeat="dungeon in dungeons")
-    .left
-      .vote {{dungeon.vote}}
     .content
       .title
         a(ui-sref="dungeons.show({id: dungeon.id})") {{dungeon.name}}

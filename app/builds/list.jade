@@ -1,26 +1,24 @@
-mixin stat(name)
+mixin stat(abbr, name)
   span.stat
-    span.label= name
+    span.label= abbr
     span.value {{build.#{name}}}
 
-.row
-  .small-12.columns
-    ul.panel-list.builds
-      li.item(ng-repeat="build in builds")
-        .left
-          .vote {{build.vote}}
-        .content
-          .title
-            a(ui-sref="builds.show({id: build.id})") {{build.name}}
-          .stats
-            +stat("vitality")
-            +stat("endurance")
-            +stat("strength")
-            +stat("skill")
-            +stat("bloodtinge")
-            +stat("arcane")
-          // .summary
-          //   p= random.lorem.paragraph()
-      
-        .right
-          .comments {{ build.commentsCount }}
+ul.panel-list.builds
+  li.item(ng-repeat="build in builds")
+    .left
+      .vote {{build.vote}}
+    .content
+      .title
+        a(ui-sref="builds.show({id: build.id})") {{build.name}}
+      .comments {{ build.commentsCount }} comments
+      .stats
+        +stat("vit", "vitality")
+        +stat("end", "endurance")
+        +stat("str", "strength")
+        +stat("ski", "skill")
+        +stat("blood", "bloodtinge")
+        +stat("arc", "arcane")
+      // .summary
+      //   p= random.lorem.paragraph()
+  
+    .right

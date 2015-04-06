@@ -18,15 +18,18 @@ angular.module('Bloodborne', [
   .state("builds", {
     url: "/builds",
     abstract: true,
-    templateUrl: "builds/index.html"
+    controller: 'Bloodborne.BuildCtrl',
+    templateUrl: "builds/layout.html"
   })
   .state("builds.index", {
     url: "",
     views: {
       mainContent: {
+        templateUrl: "builds/index.html"
+      },
+      navigation: {
         templateUrl: "builds/list.html",
-        controller: 'Bloodborne.BuildCtrl'
-      }
+      },
     }
   })
   .state("builds.show", {
@@ -34,19 +37,25 @@ angular.module('Bloodborne', [
     views: {
       mainContent: {
         templateUrl: "builds/show.html"
+      },
+      "navigation": {
+        templateUrl: "builds/list.html",
       }
     }
   })
   .state("dungeons", {
     url: "/dungeons",
     abstract: true,
-    templateUrl: "dungeons/index.html",
+    templateUrl: "dungeons/layout.html",
     controller: 'Bloodborne.DungeonCtrl'
   })
   .state("dungeons.index", {
     url: "",
     views: {
-      "navigation": {
+      mainContent: {
+        templateUrl: "dungeons/index.html",
+      },
+      navigation: {
         templateUrl: "dungeons/list.html",
       },
     }
@@ -54,10 +63,10 @@ angular.module('Bloodborne', [
   .state("dungeons.show", {
     url: "/:id",
     views: {
-      "navigation": {
+      navigation: {
         templateUrl: "dungeons/list.html",
       },
-      "mainContent": {
+      mainContent: {
         templateUrl: "dungeons/show.html",
         controller: 'Bloodborne.DungeonCtrl',
       }
