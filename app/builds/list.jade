@@ -1,0 +1,26 @@
+mixin stat(name)
+  span.stat
+    span.label= name
+    span.value {{build.#{name}}}
+
+.row
+  .small-12.columns
+    ul.panel-list.builds
+      li.item(ng-repeat="build in builds")
+        .left
+          .vote {{build.vote}}
+        .content
+          .title
+            a(ui-sref="builds.show({id: build.id})") {{build.name}}
+          .stats
+            +stat("vitality")
+            +stat("endurance")
+            +stat("strength")
+            +stat("skill")
+            +stat("bloodtinge")
+            +stat("arcane")
+          // .summary
+          //   p= random.lorem.paragraph()
+      
+        .right
+          .comments {{ build.commentsCount }}

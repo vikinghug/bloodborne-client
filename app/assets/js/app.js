@@ -15,12 +15,25 @@ angular.module('Bloodborne', [
   $stateProvider
   .state("builds", {
     url: "/builds",
-    templateUrl: "builds/index.html",
-    controller: 'Bloodborne.BuildCtrl'
+    abstract: true,
+    templateUrl: "builds/index.html"
+  })
+  .state("builds.index", {
+    url: "",
+    views: {
+      mainContent: {
+        templateUrl: "builds/list.html",
+        controller: 'Bloodborne.BuildCtrl'
+      }
+    }
   })
   .state("builds.show", {
-    url: "/show",
-    templateUrl: "builds/show.html"
+    url: "/:id",
+    views: {
+      mainContent: {
+        templateUrl: "builds/show.html"
+      }
+    }
   })
   .state("dungeons", {
     url: "/dungeons",
@@ -40,7 +53,7 @@ angular.module('Bloodborne', [
     }
   })
   .state("dungeons.show", {
-    url: "/show/:id",
+    url: "/:id",
     views: {
       "navigation": {
         templateUrl: "dungeons/navigation.html",

@@ -1,4 +1,5 @@
 [{
+  "id"            : 0,
   "name"          : "My awesome dexxer",
   "class"         : "Milquetoast",
   "user"          : 1,
@@ -11,9 +12,9 @@
   "bloodEchoes"   : 300,
   "level"         : 10,
   "vote"          : 124,
-  "commentsCount" : 42,
-  "comments"      : []
+  "commentsCount" : 42
 }, {
+  "id"            : 1,
   "name"          : "Strength Build",
   "user"          : 2,
   "class"         : "Milquetoast",
@@ -26,7 +27,5 @@
   "bloodEchoes"   : 300,
   "level"         : 10,
   "vote"          : 424,
-  "commentsCount" : 22,
-  "comments"      : []
+  "commentsCount" : 22
 }]
-
