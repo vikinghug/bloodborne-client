@@ -7,6 +7,16 @@ $panel-list {
     background: lighten($black, 5%);
     margin-top: 4px;
     position: relative;
+    cursor: pointer;
+
+
+    &.active {
+      box-shadow: inset -5px 0 0 $red;
+      background: lighten($black, 15%);
+      .left {
+        background: lighten($black, 5%);
+      }
+    }
 
     // &:first-child { margin-top: 10px; }
 

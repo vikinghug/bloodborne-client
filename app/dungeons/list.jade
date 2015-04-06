@@ -10,10 +10,9 @@ mixin item(item)
   li.item= item 
 
 ul.panel-list.dungeons
-  li.item(ng-repeat="dungeon in dungeons")
+  li.item(ng-repeat="dungeon in dungeons" ui-sref="dungeons.show({id: dungeon.id})" ui-sref-active="active")
     .content
-      .title
-        a(ui-sref="dungeons.show({id: dungeon.id})") {{dungeon.name}}
+      .title {{dungeon.name}}
       .code {{dungeon.glyph}}
       ul.items
         +item-loop(4)

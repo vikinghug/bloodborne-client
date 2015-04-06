@@ -4,12 +4,11 @@ mixin stat(abbr, name)
     span.value {{build.#{name}}}
 
 ul.panel-list.builds
-  li.item(ng-repeat="build in builds")
+  li.item(ng-repeat="build in builds" ui-sref="builds.show({id: build.id})" ui-sref-active="active")
     .left
       .vote {{build.vote}}
     .content
-      .title
-        a(ui-sref="builds.show({id: build.id})") {{build.name}}
+      .title {{build.name}}
       .comments {{ build.commentsCount }} comments
       .stats
         +stat("vit", "vitality")
