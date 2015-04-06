@@ -9,6 +9,12 @@ $panel-list {
     position: relative;
     cursor: pointer;
 
+    &.hover {
+      background: lighten($black, 9%);
+      .left {
+        background: lighten($black, 3%);
+      }
+    }
 
     &.active {
       box-shadow: inset -5px 0 0 $red;

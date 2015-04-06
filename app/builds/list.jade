@@ -4,7 +4,7 @@ mixin stat(abbr, name)
     span.value {{build.#{name}}}
 
 ul.panel-list.builds
-  li.item(ng-repeat="build in builds" ui-sref="builds.show({id: build.id})" ui-sref-active="active")
+  li.item(ng-class="{'hover': hover}" ng-repeat="build in builds" ui-sref="builds.show({id: build.id})" ui-sref-active="active" ng-mouseover="hover = true" ng-mouseout="hover = false")
     .left
       .vote {{build.vote}}
     .content
