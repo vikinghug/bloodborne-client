@@ -40,8 +40,7 @@ angular.module('Bloodborne', [
     }
   })
   .state("dungeons.show", {
-    // url: "/show/:id",
-    url: "/show",
+    url: "/show/:id",
     views: {
       "navigation": {
         templateUrl: "dungeons/navigation.html",

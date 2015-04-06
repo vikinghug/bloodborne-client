@@ -7,28 +7,18 @@ mixin item-loop(max)
     +item(item)
     - i++
 
-mixin dungeon-loop(count)
-  - n = 0
-  while n < count
-    +dungeon(random.company.catchPhrase(), n)
-    - n++
-
-mixin dungeon(name, id)
-  li.item
-    .left
-      .vote= random.random.number({min: 17, max: 80})
-    .content
-      .title
-        a(href="/#dungeons/show")= name
-      - str = random.internet.password()
-      .code= str.replace('_','').toUpperCase()
-      ul.items
-        +item-loop(4)
-    .right
-      .comments= random.random.number({min: 3, max: 80})
-
 mixin item(item)
   li.item= item 
 
 ul.panel-list.dungeons
-  +dungeon-loop(30)
+  li.item(ng-repeat="dungeon in dungeons")
+    .left
+      .vote {{dungeon.vote}}
+    .content
+      .title
+        a(ui-sref="dungeons.show({id: dungeon.id})") {{dungeon.name}}
+      .code {{dungeon.glyph}}
+      ul.items
+        +item-loop(4)
+    .right
+      .comments= random.random.number({min: 3, max: 80})
