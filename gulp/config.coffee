@@ -28,8 +28,8 @@ config.jsVendor =
 
 config.jade =
   src: [
-    path.join(config.BASE_APP_PATH, "**", "*.jade"),
-    path.join("!#{config.BASE_APP_PATH}", "shared/*")
+    path.join(config.BASE_APP_PATH, "**", "*.jade")
+    # path.join("!#{config.BASE_APP_PATH}", "shared/*")
   ]
   dest: config.BASE_GENERATED_PATH
   watch: path.join(config.BASE_APP_PATH, "**", "*.jade")

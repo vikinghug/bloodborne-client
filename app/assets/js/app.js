@@ -3,11 +3,13 @@ require('babel/polyfill');
 // import Services from './services';
 import Controllers from './controllers';
 import Services from './services';
+import Directives from './directives';
 
 angular.module('Bloodborne', [
   'ui.router',
   'Bloodborne.Services',
-  'Bloodborne.Controllers'
+  'Bloodborne.Controllers',
+  'Bloodborne.Directives'
 ])
 .run(function() {
 })

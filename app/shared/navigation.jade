@@ -1,6 +1,6 @@
 nav
   ul
-    li
+    li(ng-class="{ active: $state.includes('builds') }")
       a(ui-sref="builds.index") Builds
-    li
+    li(ng-class="{ active: $state.includes('dungeons') }")
       a(ui-sref="dungeons.index") Dungeons
