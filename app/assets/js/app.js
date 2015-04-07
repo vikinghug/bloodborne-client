@@ -52,6 +52,15 @@ angular.module('Bloodborne', [
     templateUrl: "dungeons/layout.html",
     controller: 'Bloodborne.DungeonCtrl'
   })
+  .state("dungeons.new", {
+    url: "/new",
+    views: {
+      mainContent: {
+        controller: 'Bloodborne.DungeonCtrl',
+        templateUrl: "dungeons/new.html"
+      }
+    }
+  })
   .state("dungeons.index", {
     url: "",
     views: {
