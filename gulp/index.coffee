@@ -1,3 +1,4 @@
+global.cache      = require('gulp-cached')
 global.gulp       = require("gulp")
 global.gutil      = require("gulp-util")
 global.plumber    = require("gulp-plumber")

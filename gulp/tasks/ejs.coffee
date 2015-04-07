@@ -4,6 +4,7 @@ ejs = require("gulp-ejs")
 gulp.task 'ejs', ->
   gulp.src(config.ejs.src)
     .pipe(plumber())
+    .pipe(cache('ejs'))
     .pipe(ejs())
     .pipe(gulp.dest(config.ejs.dest))
     .pipe(livereload())

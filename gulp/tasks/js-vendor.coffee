@@ -17,6 +17,7 @@ gulp.task "jsVendor", ->
     .pipe(plumber())
     .pipe(source(config.jsVendor.src))
     .pipe(buffer())
+    .pipe(cache('jsVendor'))
     .pipe(rename("vendor.js"))
     .pipe(gulp.dest(config.jsVendor.dest))
     .pipe(livereload())

@@ -9,6 +9,7 @@ sumi       = require('sumi-e')
 gulp.task 'stylus', ->
   gulp.src(config.stylus.src, {base: config.BASE_APP_PATH})
     .pipe(plumber())
+    .pipe(cache('stylus'))
     .pipe(sourcemaps.init({loadMaps: true}))
     .pipe(stylus(use: sumi()))
     .pipe(sourcemaps.write('./'))
@@ -17,6 +18,7 @@ gulp.task 'stylus', ->
 
   return gulp.src(config.stylus.src, {base: config.BASE_APP_PATH})
     .pipe(plumber())
+    .pipe(cache('stylusMin'))
     .pipe(sourcemaps.init({loadMaps: true}))
     .pipe(stylus(use: sumi()))
     .pipe(rename({suffix: '.min'}))

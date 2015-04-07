@@ -4,6 +4,7 @@ gulpJade = require("gulp-jade")
 gulp.task "jade", ->
   gulp.src(config.jade.src)
     .pipe(plumber())
+    .pipe(cache('jade'))
     .pipe(gulpJade({
       pretty: true
       data:
