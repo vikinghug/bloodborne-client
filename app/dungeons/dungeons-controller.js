@@ -1,17 +1,17 @@
 export default function(
-    $scope,
-    $stateParams,
-    DungeonService,
-    CONFIG) {
+  $scope,
+  $stateParams,
+  DungeonsService,
+  CONFIG) {
 
-  DungeonService.all().then(function(data) {
+  DungeonsService.all().then(function(data) {
     $scope.dungeons = data;
   });
 
   if ($stateParams.id !== undefined) {
-    DungeonService.find($stateParams.id).then(function(data) {
+    DungeonsService.find($stateParams.id).then(function(data) {
       $scope.dungeon = data;
       console.log($scope.dungeon);
     });
   }
-} 
+}

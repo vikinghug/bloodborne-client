@@ -1,5 +1,8 @@
+export default function(
+  $http,
+  CONFIG,
+  LookupService) {
 
-export default function($http, CONFIG, LookupService) {
   return {
     all: function() {
       return LookupService.all('dungeons');
