@@ -1,8 +1,7 @@
-export default function(
-  $scope,
-  $stateParams,
-  DungeonsService,
-  CONFIG) {
+function DungeonsController($scope,
+                            $stateParams,
+                            DungeonsService,
+                            CONFIG) {
 
   DungeonsService.all().then(function(data) {
     $scope.dungeons = data;
@@ -15,3 +14,6 @@ export default function(
     });
   }
 }
+
+
+export default ['$scope', '$stateParams', 'DungeonsService', 'CONFIG', DungeonsController];

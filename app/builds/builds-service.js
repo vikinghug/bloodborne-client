@@ -1,9 +1,8 @@
 import lookupService from '../components/lookup/lookup-service';
 
-export default function(
-  $http,
-  CONFIG,
-  LookupService) {
+function BuildsService($http,
+                       CONFIG,
+                       LookupService) {
 
   return {
     all: function() {
@@ -15,3 +14,6 @@ export default function(
     }
   };
 }
+
+
+export default ['$http', 'CONFIG', 'LookupService', BuildsService];

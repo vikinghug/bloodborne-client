@@ -16,7 +16,7 @@ angular.module('Bloodborne', [
 .constant('CONFIG', {
 })
 
-.config(function($stateProvider, $urlRouterProvider) {
+.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
   $stateProvider
   .state("builds", {
     url: "/builds",
@@ -91,4 +91,4 @@ angular.module('Bloodborne', [
       }
     }
   });
-});
+}]);

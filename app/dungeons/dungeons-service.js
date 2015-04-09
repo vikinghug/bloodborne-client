@@ -1,7 +1,6 @@
-export default function(
-  $http,
-  CONFIG,
-  LookupService) {
+function DungeonsService($http,
+                         CONFIG,
+                         LookupService) {
 
   return {
     all: function() {
@@ -13,3 +12,5 @@ export default function(
     }
   };
 }
+
+export default ['$http', 'CONFIG', 'LookupService', DungeonsService];

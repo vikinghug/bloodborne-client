@@ -1,8 +1,7 @@
-export default function(
-  $scope,
-  $stateParams,
-  BuildsService,
-  CONFIG) {
+function BuildsController($scope,
+                          $stateParams,
+                          BuildsService,
+                          CONFIG) {
 
   BuildsService.all().then(function(data) {
     $scope.builds = data;
@@ -15,3 +14,6 @@ export default function(
     });
   }
 } 
+
+
+export default ['$scope', '$stateParams', 'BuildsService', 'CONFIG', BuildsController];
