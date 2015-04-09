@@ -33,6 +33,7 @@
     "faker": "^2.1.2",
     "find-port": "^1.0.1",
     "gulp": "^3.8.11",
+    "gulp-bower": "0.0.10",
     "gulp-browserify": "^0.5.1",
     "gulp-cached": "^1.0.4",
     "gulp-coffee": "^2.3.1",

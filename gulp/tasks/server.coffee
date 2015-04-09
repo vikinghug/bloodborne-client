@@ -13,3 +13,7 @@ gulp.task 'server', ->
 gulp.task 'develop', ->
   nodemon(nodemonConfig)
     .on('start', ['default', 'watch'])
+
+# Server
+gulp.task 'server-production', ->
+  runSequence(['bower', 'default'], -> nodemon(nodemonConfig))
