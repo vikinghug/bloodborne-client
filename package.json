@@ -11,7 +11,7 @@
     "postinstall": "coffee ./scripts/postinstall.coffee",
     "pretest": "bash ./scripts/compile.sh",
     "test": "./node_modules/.bin/mocha",
-    "start": "./node_modules/.bin/gulp develop"
+    "start": "./node_modules/.bin/gulp server-develop"
   },
   "author": "",
   "license": "ISC",

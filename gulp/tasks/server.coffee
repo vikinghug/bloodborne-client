@@ -10,7 +10,8 @@ gulp.task 'server', ->
     .on('start', ['default'])
 
 # Development
-gulp.task 'develop', ->
+gulp.task 'dev', ['server-development']
+gulp.task 'server-development', ->
   nodemon(nodemonConfig)
     .on('start', ['default', 'watch'])
 
