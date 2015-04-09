@@ -5,6 +5,11 @@ nodemonConfig = require(path.join(config.ROOT_PATH, 'nodemon.json'))
 nodemonConfig.env.GULP = true
 
 # Server
-gulp.task 'server', ["default"], ->
+gulp.task 'server', ->
   nodemon(nodemonConfig)
-  run "gulp watch"
+    .on('start', ['default'])
+
+# Development
+gulp.task 'develop', ->
+  nodemon(nodemonConfig)
+    .on('start', ['default', 'watch'])
