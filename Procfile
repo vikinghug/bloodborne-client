@@ -1,1 +1,1 @@
-web: gulp server-production
+web: gulp server --production
