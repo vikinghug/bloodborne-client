@@ -26,10 +26,7 @@ config.jsVendor =
   watch: path.join(config.BASE_ASSETS_PATH, "js", "vendor.coffee")
 
 config.jade =
-  src: [
-    path.join(config.BASE_APP_PATH, "**", "*.jade")
-    # path.join("!#{config.BASE_APP_PATH}", "shared/*")
-  ]
+  src: path.join(config.BASE_APP_PATH, "**", "*.jade")
   dest: config.BASE_GENERATED_PATH
   watch: path.join(config.BASE_APP_PATH, "**", "*.jade")
 
