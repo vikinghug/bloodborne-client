@@ -1,0 +1,33 @@
+nav {
+  background: lighten($black, 10%);
+  height: 60px;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 100;
+
+
+  ul { 
+    @extend %horizontal-list;
+    height: 100%; 
+
+    li {
+      height: 100%; 
+
+      &.active {
+        background: lighten($black, 20%);
+        a { color: rgba($white, .5); }
+      }
+    }
+  }
+
+
+  a {
+    display: block;
+    line-height: 55px;
+    height: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}

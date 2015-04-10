@@ -1,0 +1,43 @@
+html, body {
+  height: auto;
+  margin: 0;
+  min-height: 100%;
+  padding: 0;
+}
+
+body {
+  background-color: $black;
+  color: $cream;
+  height: 100%;
+  padding-top: 60px;
+
+  a {
+    &,
+    &:visited {
+      color: $link-colors-normal;
+      font-weight: 500;
+      text-decoration: none;
+    }
+
+    &:hover {
+      color: $link-colors-hover;
+    }
+  }
+
+  h1, h2, h3, h4, h5 {
+    color: $dark-blue;
+  }
+
+  h1 {
+    display: block;
+    font-family: helvetica;
+    font-size: 44px;
+    text-align: center;
+    margin: 200px auto 0;
+
+    span {
+      display: block;
+      font-size: 1.6em;
+    }
+  }
+}
