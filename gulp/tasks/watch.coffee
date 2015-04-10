@@ -18,7 +18,7 @@ gulp.task "watch", ->
         # watch path.join(config.BASE_GENERATED_PATH, "**", "*"), (prr) ->
         #   livereload.changed(config.BASE_GENERATED_PATH)
 
-  watch(config.stylus.watch,   -> gulp.start("stylus"))
+  watch(config.sass.watch,     -> gulp.start("sass"))
   watch(config.js.watch,       -> gulp.start("js"))
   watch(config.jsVendor.watch, -> gulp.start("jsVendor"))
   watch(config.assets.watch,   -> gulp.start("assets"))

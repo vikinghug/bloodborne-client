@@ -8,10 +8,10 @@ config.BASE_GENERATED_PATH = path.join(config.ROOT_PATH, '.generated')
 
 config.clean = path.join(config.BASE_GENERATED_PATH, "**", "*")
 
-config.stylus =
-  src: path.join(config.BASE_ASSETS_PATH, "css", "main.styl")
+config.sass =
+  src: path.join(config.BASE_ASSETS_PATH, "css", "main.scss")
   dest: config.BASE_GENERATED_PATH
-  watch: path.join(config.BASE_ASSETS_PATH, "css", "**", "*.styl*")
+  watch: path.join(config.BASE_ASSETS_PATH, "**", "*.scss*")
 
 config.js =
   src: path.join(config.BASE_APP_PATH, "app.js")
