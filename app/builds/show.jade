@@ -5,53 +5,48 @@ mixin stat(name, key)
   stat(build="build" stat-value="build."+key stat-name=name stat-key=key)
 
 .main-content.show
-  .row
-    .small-12.columns
-      .builder
-        .row
-          .small-12.columns
-            label Starting Class
-            select#class(onchange='' size='1' ng-model="build.class")
-              +classOption('Milquetoast')
-              +classOption('Lone Survivor')
-              +classOption('Troubled Childhood')
-              +classOption('Violent Past')
-              +classOption('Professional')
-              +classOption('Military Veteran')
-              +classOption('Noble Scion')
-              +classOption('Cruel Fate')
-              +classOption('Waste of Skin')
-        .row
-          .small-12.medium-4.columns
-            .empty
-            .empty
-            +stat("Level", 'level')
-            +stat("Blood Echoes", 'bloodEchoes')
-            .empty
-            +stat("Insight", 'insight')
-            .empty
-            +stat("Vitality", 'vitality')
-            +stat("Endurance", 'endurance')
-            +stat("Strength", 'strength')
-            +stat("Skill", 'skill')
-            +stat("Bloodtinge", 'bloodtinge')
-            +stat("Arcane", 'arcane')
+  .builder
+    .row
+      .small-12.columns
+        label Starting Class
+        select#class(onchange='' size='1' ng-model="build.class")
+          +classOption('Milquetoast')
+          +classOption('Lone Survivor')
+          +classOption('Troubled Childhood')
+          +classOption('Violent Past')
+          +classOption('Professional')
+          +classOption('Military Veteran')
+          +classOption('Noble Scion')
+          +classOption('Cruel Fate')
+          +classOption('Waste of Skin')
+    .row
+      .small-12.medium-6.columns
+        .empty
+        .empty
+        +stat("Level", 'level')
+        +stat("Blood Echoes", 'bloodEchoes')
+        .empty
+        +stat("Insight", 'insight')
+        .empty
+        +stat("Vitality", 'vitality')
+        +stat("Endurance", 'endurance')
+        +stat("Strength", 'strength')
+        +stat("Skill", 'skill')
+        +stat("Bloodtinge", 'bloodtinge')
+        +stat("Arcane", 'arcane')
 
-          .small-12.medium-4.columns
-            +stat("HP")
-            +stat("Stamina")
-            +stat("Discovery")
-            .empty
-            .empty
-            .empty
-            .empty
-            .empty
-            .empty
-            +stat("Physical DEF")
-            +stat("Slow Poison RES")
-            +stat("Rapid Poison RES")
-            +stat("Frenzy RES")
-            +stat("Beasthood")
-
-          .small-12.medium-4.columns
-            | Stuff
+      .small-12.medium-6.columns
+        +stat("HP")
+        +stat("Stamina")
+        +stat("Discovery")
+        .empty
+        .empty
+        .empty
+        .empty
+        .empty
+        .empty
+        +stat("Physical DEF")
+        +stat("Slow Poison RES")
+        +stat("Rapid Poison RES")
+        +stat("Frenzy RES")
+        +stat("Beasthood")

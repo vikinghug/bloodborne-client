@@ -1,8 +1,8 @@
 .stat
   label {{statName}}
   .right
-    input.small-2(type="text" ng-value="statValue")
-    div.ng-cloak(ng-hide="statValue == undefined" ng-cloak)
-      button.down(ng-click="subtract(statKey)") -
-      button.up(ng-click="add(statKey)") +
+    input.small-1(type="text" ng-value="statValue")
+    div.button-group.ng-cloak(ng-hide="statValue == undefined" ng-cloak)
+      li: button.down(ng-click="subtract(statKey)") -
+      li: button.up(ng-click="add(statKey)") +
 

@@ -8,28 +8,47 @@
   display: block;
   margin-top: 10px;
 
-  .columns {
-    padding: 40px;
+  label {
+    color: $white;
+    line-height: 2em;
+    margin: 0;
   }
+
 
   .stat {
     @extend %stat-row;
     box-shadow: 0 1px 0 rgba($cream, .2);
 
+    input {
+      background: none;
+      border: none;
+      color: $white;
+      display: inline-block;
+      font-size: 10px;
+      height: 15px;
+      text-align: right;
+      line-height: 1;
+      margin: 0;
+      padding-right: 5px;
+      width: 50px;
+    }
+
+    .button-group {
+      margin-right: 3px;
+    }
+
+    button {
+      font-size: 0.8em;
+      padding-bottom: 0;
+      padding-left: 5px;
+      padding-right: 5px;
+      padding-top: 0;
+    }
+
     .right {
       position: absolute;
       top: 0;
       right: 0;
-      text-align: right;
-
-      input {
-        background-color: $black;
-        border: none;
-        color: $white;
-        font-size: 10px;
-        text-align: center;
-        padding: 0;
-      }
 
       > * {
         display: inline-block;
