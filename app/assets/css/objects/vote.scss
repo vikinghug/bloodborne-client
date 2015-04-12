@@ -1,4 +1,4 @@
-triangle-color = $red;
+$triangle-color: $red;
 
 .vote {
   position: relative;
@@ -7,17 +7,17 @@ triangle-color = $red;
   top: 50%;
 
   &:after {
-    @extend $pseudo-base;
+    @extend %pseudo-base;
     border: 10px solid transparent;
-    border-top-color: triangle-color;
+    border-top-color: $triangle-color;
     top: 27px;
     left: 30px;
   }
 
   &:before {
-    @extend $pseudo-base;
+    @extend %pseudo-base;
     border: 10px solid transparent;
-    border-bottom-color: triangle-color;
+    border-bottom-color: $triangle-color;
     top: -15px;
     left: 30px;
   }

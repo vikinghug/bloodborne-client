@@ -1,9 +1,9 @@
 export default function() {
   return {
     scope: {},
-    templateUrl: 'shared/navigation.html',
+    templateUrl: '/shared/navigation.html',
     replace: true,
-    controller: 'Bloodborne.NavigationCtrl',
+    controller: 'MainNavigationController',
     controllerAs: 'ctrl'
   };
 }

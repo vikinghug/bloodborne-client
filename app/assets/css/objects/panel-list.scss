@@ -1,7 +1,8 @@
-$panel-list {
+%panel-list {
   list-style-type: none;
   padding-left: 0;
   margin: 0;
+  width: 360px;
 
   > .item {
     background: lighten($black, 5%);
@@ -72,7 +73,7 @@ $panel-list {
 }
 
 .panel-list {
-  @extend $panel-list;
+  @extend %panel-list;
 
   &.builds {
     .content {

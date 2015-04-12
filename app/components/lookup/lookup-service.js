@@ -1,6 +1,7 @@
 var _ = require('underscore');
 
-export default function($http, CONFIG) {
+export default angular.module('Bloodborne.Components', [])
+.service('LookupService', ['$http', 'CONFIG', function($http, CONFIG) {
   return {
     all: function(resource) {
       return $http.get('/data/' + resource + '.js')
@@ -18,4 +19,4 @@ export default function($http, CONFIG) {
       });
     }
   };
-}
+}]);

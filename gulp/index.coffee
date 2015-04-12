@@ -1,15 +1,16 @@
-global.cache      = require('gulp-cached')
-global.gulp       = require("gulp")
-global.gutil      = require("gulp-util")
-global.plumber    = require("gulp-plumber")
-global.path       = require("path")
-global.config     = require("./config")
-global.livereload = require("gulp-livereload")
-runSequence       = require("run-sequence")
+global.cache       = require('gulp-cached')
+global.gulp        = require("gulp")
+global.gutil       = require("gulp-util")
+global.plumber     = require("gulp-plumber")
+global.path        = require("path")
+global.config      = require("./config")
+global.livereload  = require("gulp-livereload")
+global.runSequence = require("run-sequence")
 
 assetsTask   = require("./tasks/assets")
+bowerTask    = require("./tasks/bower")
 cleanTask    = require("./tasks/clean")
-stylusTask   = require("./tasks/stylus")
+sassTask     = require("./tasks/sass")
 ejsTask      = require("./tasks/ejs")
 jadeTask     = require("./tasks/jade")
 jsTask       = require("./tasks/js")
@@ -19,4 +20,4 @@ testTask     = require("./tasks/test")
 watchTask    = require("./tasks/watch")
 
 gulp.task "default", (callback) ->
-  runSequence "clean", "stylus", "js", "jsVendor", "assets", "ejs", "jade", callback
+  runSequence "clean", "sass", "js", "jsVendor", "assets", "ejs", "jade", callback

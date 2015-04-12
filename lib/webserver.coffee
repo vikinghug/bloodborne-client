@@ -24,7 +24,6 @@ basePath      = path.join(__dirname, '..')
 dataPath      = path.join(basePath, 'data')
 generatedPath = path.join(basePath, '.generated')
 assetsPath    = path.join(generatedPath, 'assets')
-vendorPath    = path.join(basePath, 'bower_components')
 faviconPath   = path.join(basePath, 'app', 'favicon.ico')
 
 # Build our map of files
@@ -67,8 +66,7 @@ server = (options = {}) ->
   app.set('view engine', 'html')
   app.use(favicon(faviconPath))
   app.use('/data', express.static(dataPath))
-  app.use('/assets', express.static(assetsPath))
-  app.use('/vendor', express.static(vendorPath))
+  app.use('/', express.static(generatedPath))
 
   # Routes
   app.get '/', (req, res) ->

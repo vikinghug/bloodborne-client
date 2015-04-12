@@ -9,7 +9,7 @@ nav {
 
 
   ul { 
-    @extend $horizontal-list;
+    @extend %horizontal-list;
     height: 100%; 
 
     li {

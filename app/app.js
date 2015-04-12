@@ -1,28 +1,30 @@
 require('babel/polyfill');
 
-// import Services from './services';
-import Controllers from './controllers';
-import Services from './services';
-import Directives from './directives';
+import MainNavigation from './components/main-navigation/main-navigation';
+import Builds from './builds/builds';
+import Dungeons from './dungeons/dungeons';
 
 angular.module('Bloodborne', [
   'ui.router',
-  'Bloodborne.Services',
-  'Bloodborne.Controllers',
-  'Bloodborne.Directives'
+  'Bloodborne.Builds',
+  'Bloodborne.MainNavigation',
+  'Bloodborne.Dungeons',
 ])
-.run(function() {
-})
+
+.run(function() { })
+
 .constant('CONFIG', {
 })
-.config(function($stateProvider, $urlRouterProvider) {
+
+.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
   $stateProvider
   .state("builds", {
     url: "/builds",
     abstract: true,
-    controller: 'Bloodborne.BuildCtrl',
+    controller: 'BuildsController',
     templateUrl: "builds/layout.html"
   })
+
   .state("builds.index", {
     url: "",
     views: {
@@ -34,6 +36,7 @@ angular.module('Bloodborne', [
       },
     }
   })
+
   .state("builds.show", {
     url: "/:id",
     views: {
@@ -41,26 +44,29 @@ angular.module('Bloodborne', [
         templateUrl: "builds/list.html",
       },
       mainContent: {
-        controller: 'Bloodborne.BuildCtrl',
+        controller: 'BuildsController',
         templateUrl: "builds/show.html"
       },
     }
   })
+
   .state("dungeons", {
     url: "/dungeons",
     abstract: true,
     templateUrl: "dungeons/layout.html",
-    controller: 'Bloodborne.DungeonCtrl'
+    controller: 'DungeonsController'
   })
+
   .state("dungeons.new", {
     url: "/new",
     views: {
       mainContent: {
-        controller: 'Bloodborne.DungeonCtrl',
+        controller: 'DungeonsController',
         templateUrl: "dungeons/new.html"
       }
     }
   })
+
   .state("dungeons.index", {
     url: "",
     views: {
@@ -72,6 +78,7 @@ angular.module('Bloodborne', [
       },
     }
   })
+
   .state("dungeons.show", {
     url: "/:id",
     views: {
@@ -80,8 +87,8 @@ angular.module('Bloodborne', [
       },
       mainContent: {
         templateUrl: "dungeons/show.html",
-        controller: 'Bloodborne.DungeonCtrl',
+        controller: 'DungeonsController',
       }
     }
   });
-});
+}]);

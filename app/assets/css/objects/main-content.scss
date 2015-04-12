@@ -4,4 +4,8 @@
   top: 60px;
   right: 0;
   bottom: 0;
+
+  &.new {
+    left: 0;
+  }
 }

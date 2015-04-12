@@ -1,12 +1,10 @@
 mixin classOption(name)
   option(value=name selected=name)= name
 
-mixin stat(name, value)
-  .stat
-    label= name
-    .right= value
+mixin stat(name, key)
+  stat(build="build" stat-value="build."+key stat-name=name stat-key=key)
 
-.main-content
+.main-content.show
   .row
     .small-12.columns
       .builder
@@ -27,33 +25,33 @@ mixin stat(name, value)
           .small-12.medium-4.columns
             .empty
             .empty
-            +stat("Level", '{{build.level}}')
-            +stat("Blood Echoes", '{{build.bloodEchoes}}')
+            +stat("Level", 'level')
+            +stat("Blood Echoes", 'bloodEchoes')
             .empty
-            +stat("Insight", '{{build.insight}}')
+            +stat("Insight", 'insight')
             .empty
-            +stat("Vitality", '{{build.vitality}}')
-            +stat("Endurance", '{{build.endurance}}')
-            +stat("Strength", '{{build.strength}}')
-            +stat("Skill", '{{build.skill}}')
-            +stat("Bloodtinge", '{{build.bloodtinge}}')
-            +stat("Arcane", '{{build.arcane}}')
+            +stat("Vitality", 'vitality')
+            +stat("Endurance", 'endurance')
+            +stat("Strength", 'strength')
+            +stat("Skill", 'skill')
+            +stat("Bloodtinge", 'bloodtinge')
+            +stat("Arcane", 'arcane')
 
           .small-12.medium-4.columns
-            +stat("HP", '--')
-            +stat("Stamina", '--')
-            +stat("Discovery", '--')
+            +stat("HP")
+            +stat("Stamina")
+            +stat("Discovery")
             .empty
             .empty
             .empty
             .empty
             .empty
             .empty
-            +stat("Physical DEF", '--')
-            +stat("Slow Poison RES", '--')
-            +stat("Rapid Poison RES", '--')
-            +stat("Frenzy RES", '--')
-            +stat("Beasthood", '--')
+            +stat("Physical DEF")
+            +stat("Slow Poison RES")
+            +stat("Rapid Poison RES")
+            +stat("Frenzy RES")
+            +stat("Beasthood")
 
           .small-12.medium-4.columns
             | Stuff
