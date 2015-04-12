@@ -12,6 +12,13 @@ config.sass =
   src: path.join(config.BASE_ASSETS_PATH, "css", "main.scss")
   dest: config.BASE_GENERATED_PATH
   watch: path.join(config.BASE_ASSETS_PATH, "**", "*.scss*")
+  options:
+    errLogToConsole: true
+    includePaths: [
+      path.join(config.ROOT_PATH, 'bower_components', 'foundation', 'scss')
+      require('node-bourbon').includePaths
+    ]
+
 
 config.js =
   src: path.join(config.BASE_APP_PATH, "app.js")
