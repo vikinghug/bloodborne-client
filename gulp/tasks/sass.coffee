@@ -14,6 +14,7 @@ gulp.task 'sass', ->
     .pipe(minifycss())
     .pipe(sourcemaps.write('./'))
     .pipe(gulp.dest(config.sass.dest))
+    .pipe(livereload())
 
   return gulp.src(config.sass.src)
     .pipe(plumber())
@@ -21,3 +22,4 @@ gulp.task 'sass', ->
     .pipe(sass(config.sass.options))
     .pipe(sourcemaps.write('./'))
     .pipe(gulp.dest(config.sass.dest))
+    .pipe(livereload())
