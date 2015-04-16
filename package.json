@@ -83,7 +83,8 @@
   },
   "browser": {
     "angular": "./bower_components/angular/angular.js",
-    "angular-ui-router": "./bower_components/angular-ui-router/release/angular-ui-router.js"
+    "angular-ui-router": "./bower_components/angular-ui-router/release/angular-ui-router.js",
+    "angular-filter": "./bower_components/angular-filter/dist/angular-filter.js"
   },
   "browserify-shim": {
     "angular": {
@@ -92,6 +93,9 @@
       ]
     },
     "angular-ui-router": {
+      "depends": "angular"
+    },
+    "angular-filter": {
       "depends": "angular"
     }
   }

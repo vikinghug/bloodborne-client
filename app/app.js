@@ -6,6 +6,7 @@ import Dungeons from './dungeons/dungeons';
 
 angular.module('Bloodborne', [
   'ui.router',
+  'angular.filter',
   'Bloodborne.Builds',
   'Bloodborne.MainNavigation',
   'Bloodborne.Dungeons',
@@ -14,6 +15,7 @@ angular.module('Bloodborne', [
 .run(function() { })
 
 .constant('CONFIG', {
+  serverUrl: 'http://localhost:1337/'
 })
 
 .config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {

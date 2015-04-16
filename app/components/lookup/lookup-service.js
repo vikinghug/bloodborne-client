@@ -4,18 +4,16 @@ export default angular.module('Bloodborne.Components', [])
 .service('LookupService', ['$http', 'CONFIG', function($http, CONFIG) {
   return {
     all: function(resource) {
-      return $http.get('/data/' + resource + '.js')
+      return $http.get(CONFIG.serverUrl + resource)
       .then(function(res) {
         return res.data;
       });
     },
 
     find: function(resource, id) {
-      return $http.get('/data/' + resource + '.js')
+      return $http.get(CONFIG.serverUrl + resource + '/' + id)
       .then(function(res) {
-        var foo = _.findWhere(res.data, {id: parseInt(id)});
-        console.log(id, res.data, foo);
-        return foo;
+        return res.data;
       });
     }
   };

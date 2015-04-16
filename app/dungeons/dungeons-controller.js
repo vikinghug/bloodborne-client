@@ -1,19 +1,21 @@
 function DungeonsController($scope,
                             $stateParams,
-                            DungeonsService,
-                            CONFIG) {
+                            DungeonsService) {
 
-  DungeonsService.all().then(function(data) {
-    $scope.dungeons = data;
-  });
 
-  if ($stateParams.id !== undefined) {
+  if ($stateParams.id === undefined) {
+
+    DungeonsService.all().then(function(data) {
+      $scope.dungeons = data;
+    });
+
+  } else {
+
     DungeonsService.find($stateParams.id).then(function(data) {
-      $scope.dungeon = data;
-      console.log($scope.dungeon);
+      $scope.activeDungeon = data;
     });
   }
 }
 
 
-export default ['$scope', '$stateParams', 'DungeonsService', 'CONFIG', DungeonsController];
+export default ['$scope', '$stateParams', 'DungeonsService', DungeonsController];
