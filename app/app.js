@@ -15,6 +15,7 @@ angular.module('Bloodborne', [
 .run(function() { })
 
 .constant('CONFIG', {
+  serverUrl: 'http://localhost:1337/'
 })
 
 .config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
