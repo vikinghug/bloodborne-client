@@ -1,3 +1,19 @@
 .main-content
-  h1 Dungeon!
-  p {{dungeon}}
+  .row
+    .small-9.columns
+      h1 {{dungeon.name}}
+      h4 {{dungeon.glyph}}
+    .small-3.columns
+
+  .row
+    .small-12.columns
+      div(ng-repeat="level in dungeon.levels")
+        h3 Level {{level.name}}
+        ul
+          li(ng-repeat="location in level.locations")
+            h4 {{location.name}}
+            p {{location.description}}
+            h5 Items
+            ul.inline-list
+              li(ng-repeat="item in location.items")
+                {{item.name}}

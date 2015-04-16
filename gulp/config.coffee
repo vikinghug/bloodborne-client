@@ -9,9 +9,9 @@ config.BASE_GENERATED_PATH = path.join(config.ROOT_PATH, '.generated')
 config.clean = path.join(config.BASE_GENERATED_PATH, "**", "*")
 
 config.sass =
-  src: path.join(config.BASE_ASSETS_PATH, "css", "main.scss")
+  src: path.join(config.BASE_APP_PATH, "main.scss")
   dest: config.BASE_GENERATED_PATH
-  watch: path.join(config.BASE_ASSETS_PATH, "**", "*.scss*")
+  watch: path.join(config.BASE_APP_PATH, "**", "*.scss*")
   options:
     errLogToConsole: true
     includePaths: [

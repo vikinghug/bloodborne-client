@@ -1,7 +1,7 @@
 mixin stat(abbr, name)
-  span.stat
-    span.label= abbr
-    span.value {{build.#{name}}}
+  li.stat
+    .label= abbr
+    .value {{build.#{name}}}
 
 ul.panel-list.builds
   li.item(ng-class="{'hover': hover}" ng-repeat="build in builds" ui-sref="builds.show({id: build.id})" ui-sref-active="active" ng-mouseover="hover = true" ng-mouseout="hover = false")
@@ -10,7 +10,7 @@ ul.panel-list.builds
     .content
       .title {{build.name}}
       .comments {{ build.commentsCount }} comments
-      .stats
+      ul.stat-list.small-block-grid-6
         +stat("vit", "vitality")
         +stat("end", "endurance")
         +stat("str", "strength")

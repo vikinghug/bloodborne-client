@@ -1,0 +1,20 @@
+.stat-list {
+  .stat {
+    .label {
+      background: none;
+      color: $white;
+      font-size: 10px;
+      padding-left: 0;
+      padding-right: 0;
+      text-transform: uppercase;
+      width: 100%;
+    }
+
+    .value {
+      padding-left: 0;
+      padding-right: 0;
+      text-align: center;
+      width: 100%;
+    }
+  }
+}
