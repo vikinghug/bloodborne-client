@@ -6,6 +6,7 @@ import Dungeons from './dungeons/dungeons';
 
 angular.module('Bloodborne', [
   'ui.router',
+  'angular.filter',
   'Bloodborne.Builds',
   'Bloodborne.MainNavigation',
   'Bloodborne.Dungeons',
