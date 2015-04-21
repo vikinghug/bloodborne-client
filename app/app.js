@@ -108,5 +108,8 @@ angular.module('Bloodborne', [
         controller: 'DungeonsController',
       }
     }
+  })
+  .state("otherwise", {
+    url: '/'
   });
 }]);
