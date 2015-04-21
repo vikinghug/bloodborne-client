@@ -2,12 +2,14 @@ require('babel/polyfill');
 
 import MainNavigation from './components/main-navigation/main-navigation';
 import Home from './home/home';
+import Auth from './auth/auth';
 import Builds from './builds/builds';
 import Dungeons from './dungeons/dungeons';
 
 angular.module('Bloodborne', [
   'ui.router',
   'Bloodborne.Home',
+  'Bloodborne.Auth',
   'Bloodborne.Builds',
   'Bloodborne.MainNavigation',
   'Bloodborne.Dungeons',
@@ -33,6 +35,31 @@ angular.module('Bloodborne', [
       mainContent: {
         templateUrl: 'home/index.html'
       }
+    }
+  })
+
+  .state("auth", {
+    url: "/auth",
+    abstract: true,
+    controller: 'AuthController',
+    templateUrl: 'components/layouts/one-column.html'
+  })
+  .state("auth.login", {
+    url: "/login",
+    views: {
+      mainContent: { templateUrl: 'auth/login.html' }
+    }
+  })
+  .state("auth.register", {
+    url: "/register",
+    views: {
+      mainContent: { templateUrl: 'auth/register.html' }
+    }
+  })
+  .state("auth.reset", {
+    url: "/reset",
+    views: {
+      mainContent: { templateUrl: 'auth/reset.html' }
     }
   })
 

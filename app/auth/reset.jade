@@ -1,0 +1,16 @@
+.main-content
+  form(ng-submit="requestPasswordReset(resetForm)" ng-init="resetForm = { email: 'kevin@itsthatguy.com'}")
+    .row
+      .small-12.medium-6.small-centered.columns
+        h2 Reset Password
+        .row
+          .small-12.columns
+            label
+              | email
+              input(type='email' name='email' ng-model='loginForm.email')
+        .row
+          .small-12.columns
+            input.button(type='submit')
+        .row
+          .small-12.columns
+            p: a(ui-sref="auth.login") Login to an existing account.
