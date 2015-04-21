@@ -1,11 +1,13 @@
 require('babel/polyfill');
 
 import MainNavigation from './components/main-navigation/main-navigation';
+import Home from './home/home';
 import Builds from './builds/builds';
 import Dungeons from './dungeons/dungeons';
 
 angular.module('Bloodborne', [
   'ui.router',
+  'Bloodborne.Home',
   'Bloodborne.Builds',
   'Bloodborne.MainNavigation',
   'Bloodborne.Dungeons',
@@ -18,6 +20,22 @@ angular.module('Bloodborne', [
 
 .config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
   $stateProvider
+  .state("home", {
+    url: "/",
+    abstract: true,
+    controller: 'HomeController',
+    templateUrl: 'components/layouts/one-column.html'
+  })
+
+  .state("home.index", {
+    url: "",
+    views: {
+      mainContent: {
+        templateUrl: 'home/index.html'
+      }
+    }
+  })
+
   .state("builds", {
     url: "/builds",
     abstract: true,
