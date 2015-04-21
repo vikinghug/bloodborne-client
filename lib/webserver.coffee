@@ -72,10 +72,14 @@ server = (options = {}) ->
   app.get '/', (req, res) ->
     res.render(generatedPath + '/index.html', {data: config})
 
-  app.get '*', (req, res) ->
-    filepath = mapper.getPath(req.originalUrl, filetree)
+  # app.get '*', (req, res) ->
+  #   console.log req
+  #   filepath = mapper.getPath(req.originalUrl, filetree)
 
-    res.render(filepath)
+  #   if (!filepath)
+  #     console.log req, res
+
+  #   res.render(filepath)
 
 # Start the server if run from CLI with the --start flag
 # or if started from `gulp server`

@@ -84,7 +84,9 @@
   "browser": {
     "angular": "./bower_components/angular/angular.js",
     "angular-ui-router": "./bower_components/angular-ui-router/release/angular-ui-router.js",
-    "angular-filter": "./bower_components/angular-filter/dist/angular-filter.js"
+    "angular-filter": "./bower_components/angular-filter/dist/angular-filter.js",
+    "angular-cookie": "./bower_components/angular-cookie/angular-cookie.js",
+    "ng-token-auth": "./bower_components/ng-token-auth/dist/ng-token-auth.js"
   },
   "browserify-shim": {
     "angular": {
@@ -97,6 +99,16 @@
     },
     "angular-filter": {
       "depends": "angular"
+    },
+    "angular-cookie": {
+      "depends": "angular"
+    },
+    "ng-token-auth": {
+      "depends": [
+        "angular-cookie",
+        "angular"
+      ]
     }
+
   }
 }

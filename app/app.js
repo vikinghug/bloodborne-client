@@ -1,15 +1,18 @@
 require('babel/polyfill');
 
 import MainNavigation from './components/main-navigation/main-navigation';
+import Home from './home/home';
 import Builds from './builds/builds';
 import Dungeons from './dungeons/dungeons';
 
 angular.module('Bloodborne', [
   'ui.router',
   'angular.filter',
+  'Bloodborne.Home',
   'Bloodborne.Builds',
   'Bloodborne.MainNavigation',
   'Bloodborne.Dungeons',
+  'ng-token-auth'
 ])
 
 .run(function() { })
@@ -18,8 +21,58 @@ angular.module('Bloodborne', [
   serverUrl: 'http://localhost:1337/'
 })
 
-.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
+.config(['$stateProvider', '$urlRouterProvider', '$httpProvider', '$authProvider', 'CONFIG', function($stateProvider, $urlRouterProvider, $httpProvider, $authProvider, CONFIG) {
+
+  var handleResponse = function(res, $auth) {
+    debugger;
+    var foo = "thing";
+    console.log(res);
+    return res;
+  }
+
+  $httpProvider.defaults.withCredentials = true;
+
+  $authProvider.configure({
+    apiUrl                : CONFIG.serverUrl + 'auth',
+    emailSignInPath       : '/login',
+    emailRegistrationPath : '/login',
+    signOutUrl            : '/logout',
+    tokenValidationPath   : '/validate',
+    handleLoginResponse   : handleResponse
+  });
+
   $stateProvider
+  .state("home", {
+    url: "/",
+    abstract: true,
+    controller: 'HomeController',
+    templateUrl: "home/layout.html"
+  })
+  .state("home.index", {
+    url: "",
+    views: {
+      mainContent: {
+        templateUrl: "home/index.html"
+      },
+    }
+  })
+  .state("home.login", {
+    url: "login",
+    views: {
+      mainContent: {
+        templateUrl: "home/login.html"
+      },
+    }
+  })
+  .state("home.register", {
+    url: "register",
+    views: {
+      mainContent: {
+        templateUrl: "home/register.html"
+      },
+    }
+  })
+
   .state("builds", {
     url: "/builds",
     abstract: true,
