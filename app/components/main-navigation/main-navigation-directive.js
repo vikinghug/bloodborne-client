@@ -1,7 +1,7 @@
 export default function() {
   return {
     scope: {},
-    templateUrl: '/shared/navigation.html',
+    templateUrl: '/components/main-navigation/main-navigation.html',
     replace: true,
     controller: 'MainNavigationController',
     controllerAs: 'ctrl'

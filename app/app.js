@@ -22,7 +22,7 @@ angular.module('Bloodborne', [
     url: "/builds",
     abstract: true,
     controller: 'BuildsController',
-    templateUrl: "builds/layout.html"
+    templateUrl: 'components/layouts/two-column-app.html'
   })
 
   .state("builds.index", {
@@ -53,7 +53,7 @@ angular.module('Bloodborne', [
   .state("dungeons", {
     url: "/dungeons",
     abstract: true,
-    templateUrl: "dungeons/layout.html",
+    templateUrl: 'components/layouts/two-column-app.html',
     controller: 'DungeonsController'
   })
 
