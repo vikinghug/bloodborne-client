@@ -1,16 +1,15 @@
 function DungeonsService($http,
-                         CONFIG,
                          LookupService) {
 
   return {
     all: function() {
-      return LookupService.all('dungeons');
+      return LookupService.all('dungeon');
     },
 
     find: function(id) {
-      return LookupService.find('dungeons', id);
+      return LookupService.find('dungeon', id);
     }
   };
 }
 
-export default ['$http', 'CONFIG', 'LookupService', DungeonsService];
+export default ['$http', 'LookupService', DungeonsService];

@@ -1,20 +1,8 @@
-mixin item-loop(max)
-  - i = 0
-  - count = random.random.number({min: 1, max: max})
-  while i < count
-    - item = random.hacker.adjective() + " " + random.hacker.ingverb() + " " + random.hacker.noun()
-    +item(item)
-    - i++
-
-mixin item(item)
-  li.item= item 
-
 ul.panel-list.dungeons
   li.item(ng-class="{'hover': hover}" ng-repeat="dungeon in dungeons" ui-sref="dungeons.show({id: dungeon.id})" ui-sref-active="active" ng-mouseover="hover = true" ng-mouseout="hover = false")
     .content
       .title {{dungeon.name}}
       .code {{dungeon.glyph}}
-      ul.items
-        +item-loop(4)
+
     .right
       .comments= random.random.number({min: 3, max: 80})

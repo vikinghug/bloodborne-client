@@ -4,3 +4,9 @@ nav
       a(ui-sref="builds.index") Builds
     li(ng-class="{ active: $state.includes('dungeons') }")
       a(ui-sref="dungeons.index") Dungeons
+
+  .right
+    ul
+      li: a(ui-sref="auth.login") Login
+      li: a.button(ui-sref="auth.register") Register
+      li: button(ng-click="signOut()") logout

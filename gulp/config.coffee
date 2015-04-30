@@ -30,7 +30,10 @@ config.js =
 config.jsVendor =
   src: path.join(config.BASE_ASSETS_PATH, "js", "vendor.coffee")
   dest: path.join(config.BASE_GENERATED_PATH, "assets", 'js')
-  watch: path.join(config.BASE_ASSETS_PATH, "js", "vendor.coffee")
+  watch: [
+    path.join(config.BASE_ASSETS_PATH, "js", "vendor.coffee")
+    path.join(config.ROOT_PATH, "bower_components", "**", "*.js")
+  ]
 
 config.jade =
   src: path.join(config.BASE_APP_PATH, "**", "*.jade")

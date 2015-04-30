@@ -1,0 +1,22 @@
+.main-content.new
+  form(ng-submit="submitLogin(loginForm)" ng-init="loginForm = { identifier: 'kevin@itsthatguy.com', password: 'password' }")
+    .row
+      .small-12.medium-6.small-centered.columns
+        h2 Login
+        .row
+          .small-12.columns
+            label
+              | email
+              input(type='email' ng-model='loginForm.identifier')
+        .row
+          .small-12.columns
+            label
+              | password
+              input(type='password' ng-model='loginForm.password')
+        .row
+          .small-12.columns
+            input.button(type='submit')
+
+        .row
+          .small-12.columns
+            p: a(ui-sref="auth.reset") Forgot your password?
