@@ -1,19 +1,18 @@
 .main-content
   .row
     .small-9.columns
-      h1 {{dungeon.name}}
-      h4 {{dungeon.glyph}}
+      h1 {{activeDungeon.name}}
+      h4 {{activeDungeon.glyph}}
     .small-3.columns
 
   .row
     .small-12.columns
-      div(ng-repeat="level in dungeon.levels")
-        h3 Level {{level.name}}
-        ul
-          li(ng-repeat="location in level.locations")
-            h4 {{location.name}}
-            p {{location.description}}
-            h5 Items
-            ul.inline-list
-              li(ng-repeat="item in location.items")
-                {{item.name}}
+      div(ng-repeat="(key, value) in activeDungeon.locations | groupBy: 'level'")
+        div(ng-repeat="location in value")
+          h3 {{location.description}}
+          ul
+            li Chalice {{location.chalice}}
+            li Level {{location.level}}
+          ul
+            li(ng-repeat="item in location.items")
+              h4 {{item.name}}

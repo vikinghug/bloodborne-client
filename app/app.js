@@ -8,19 +8,41 @@ import Dungeons from './dungeons/dungeons';
 
 angular.module('Bloodborne', [
   'ui.router',
+  'angular.filter',
   'Bloodborne.Home',
   'Bloodborne.Auth',
   'Bloodborne.Builds',
   'Bloodborne.MainNavigation',
   'Bloodborne.Dungeons',
+  'ng-token-auth'
 ])
 
 .run(function() { })
 
 .constant('CONFIG', {
+  serverUrl: 'http://localhost:1337/'
 })
 
-.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
+.config(['$stateProvider', '$urlRouterProvider', '$httpProvider', '$authProvider', 'CONFIG', function($stateProvider, $urlRouterProvider, $httpProvider, $authProvider, CONFIG) {
+
+  $httpProvider.defaults.withCredentials = true;
+
+  $authProvider.configure({
+    apiUrl                : CONFIG.serverUrl,
+    emailSignInPath       : 'auth/local',
+    emailRegistrationPath : 'auth/local/register',
+    signOutUrl            : 'logout',
+    tokenValidationPath   : 'validate',
+    tokenFormat           : {'authorization': '{{token}}'},
+    handleLoginResponse   : function(res, $auth) {
+      $auth.persistData('auth_headers', {
+        authorization: res.token
+      });
+
+      return res.user;
+    }
+  });
+
   $stateProvider
   .state("home", {
     url: "/",
@@ -28,7 +50,6 @@ angular.module('Bloodborne', [
     controller: 'HomeController',
     templateUrl: 'components/layouts/one-column.html'
   })
-
   .state("home.index", {
     url: "",
     views: {
@@ -74,7 +95,7 @@ angular.module('Bloodborne', [
     url: "",
     views: {
       navigation: {
-        templateUrl: "builds/list.html",
+        templateUrl: "builds/list.html"
       },
       mainContent: {
         templateUrl: "builds/index.html"
@@ -86,7 +107,7 @@ angular.module('Bloodborne', [
     url: "/:id",
     views: {
       "navigation": {
-        templateUrl: "builds/list.html",
+        templateUrl: "builds/list.html"
       },
       mainContent: {
         controller: 'BuildsController',
@@ -116,10 +137,10 @@ angular.module('Bloodborne', [
     url: "",
     views: {
       mainContent: {
-        templateUrl: "dungeons/index.html",
+        templateUrl: "dungeons/index.html"
       },
       navigation: {
-        templateUrl: "dungeons/list.html",
+        templateUrl: "dungeons/list.html"
       },
     }
   })
@@ -128,11 +149,11 @@ angular.module('Bloodborne', [
     url: "/:id",
     views: {
       navigation: {
-        templateUrl: "dungeons/list.html",
+        templateUrl: "dungeons/list.html"
       },
       mainContent: {
         templateUrl: "dungeons/show.html",
-        controller: 'DungeonsController',
+        controller: 'DungeonsController'
       }
     }
   })

@@ -1,4 +1,7 @@
 require('jquery')
 require('angular')
 require('angular-ui-router')
+require('angular-filter')
+require('angular-cookie')
+require('ng-token-auth')
 # require('ember')
