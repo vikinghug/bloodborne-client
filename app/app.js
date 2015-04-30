@@ -37,6 +37,8 @@ angular.module('Bloodborne', [
         authorization: res.token,
       });
 
+      alert('Logged in!');
+
       return res.user;
     }
   });

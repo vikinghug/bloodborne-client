@@ -16,6 +16,8 @@ function HomeController($scope,
         $auth.persistData('auth_headers', {
           Authorization: 'Bearer ' + resp.token,
         });
+
+        alert('Registered (and logged in)!');
       })
       .catch(function(resp) {
         console.log('catch', resp);
