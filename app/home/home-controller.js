@@ -10,6 +10,18 @@ function HomeController($scope,
   //   });
   // };
 
+  $scope.registrationSubmit = function(form) {
+    $auth.submitRegistration(form)
+      .then(function(resp) {
+        $auth.persistData('auth_headers', {
+          Authorization: 'Bearer ' + resp.token,
+        });
+      })
+      .catch(function(resp) {
+        console.log('catch', resp);
+      });
+  }
+
 }
 
 

@@ -23,22 +23,22 @@ angular.module('Bloodborne', [
 
 .config(['$stateProvider', '$urlRouterProvider', '$httpProvider', '$authProvider', 'CONFIG', function($stateProvider, $urlRouterProvider, $httpProvider, $authProvider, CONFIG) {
 
-  var handleResponse = function(res, $auth) {
-    debugger;
-    var foo = "thing";
-    console.log(res);
-    return res;
-  }
-
   $httpProvider.defaults.withCredentials = true;
 
   $authProvider.configure({
-    apiUrl                : CONFIG.serverUrl + 'auth',
-    emailSignInPath       : '/login',
-    emailRegistrationPath : '/login',
-    signOutUrl            : '/logout',
-    tokenValidationPath   : '/validate',
-    handleLoginResponse   : handleResponse
+    apiUrl                : CONFIG.serverUrl,
+    emailSignInPath       : 'auth/local',
+    emailRegistrationPath : 'auth/local/register',
+    signOutUrl            : 'logout',
+    tokenValidationPath   : 'validate',
+    tokenFormat           : {'authorization': '{{token}}'},
+    handleLoginResponse   : function(res, $auth) {
+      $auth.persistData('auth_headers', {
+        authorization: res.token,
+      });
+
+      return res.user;
+    }
   });
 
   $stateProvider
