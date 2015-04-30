@@ -7,6 +7,9 @@ function AuthController($scope, $auth) {
       $auth.persistData('auth_headers', {
         Authorization: 'Bearer ' + resp.token,
       });
+
+      alert('registered');
+
     })
     .catch(function(resp) {
       console.log('catch', resp);
