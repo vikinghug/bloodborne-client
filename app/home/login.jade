@@ -1,5 +1,5 @@
 .main-content.new
-  form(ng-submit="submitLogin(loginForm)" ng-init="loginForm = { email: 'kevin@itsthatguy.com', password: 'password' }")
+  form(ng-submit="submitLogin(loginForm)" ng-init="loginForm = { identifier: 'kevin@itsthatguy.com', password: 'password' }")
     .row
       .small-12.medium-6.small-centered.columns
         h2 Login
@@ -7,7 +7,7 @@
           .small-12.columns
             label
               | email
-              input(type='email' name='email' ng-model='loginForm.email')
+              input(type='email' name='identifier' ng-model='loginForm.identifier')
         .row
           .small-12.columns
             label
@@ -16,5 +16,3 @@
         .row
           .small-12.columns
             input.button(type='submit')
-              
-
