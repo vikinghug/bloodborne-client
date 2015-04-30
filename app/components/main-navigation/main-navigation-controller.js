@@ -1,7 +1,9 @@
 function MainNavigationController($scope,
-                                  $state) {
+                                  $state,
+                                  $auth) {
 
   $scope.$state = $state;
+
 }
 
-export default ['$scope', '$state', MainNavigationController];
+export default ['$scope', '$state', '$auth', MainNavigationController];
