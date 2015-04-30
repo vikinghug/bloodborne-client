@@ -1,5 +1,5 @@
 .main-content.new
-  form(ng-submit="submitRegistration(loginForm)" ng-init="loginForm = {}")
+  form(ng-submit="registrationSubmit(loginForm)" ng-init="loginForm = {email: 'kevin@itsthatguy.com', password: 'password', username: 'itg'}")
     .row
       .small-12.medium-6.small-centered.columns
         h2 Register
@@ -21,5 +21,3 @@
         .row
           .small-12.columns
             input.button(type='submit')
-              
-
