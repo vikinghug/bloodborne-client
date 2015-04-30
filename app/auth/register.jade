@@ -1,13 +1,18 @@
 .main-content.new
-  form(ng-submit="submitRegistration(loginForm)" ng-init="loginForm = {}")
+  form(ng-submit="registrationSubmit(loginForm)" ng-init="loginForm = {}")
     .row
       .small-12.medium-6.small-centered.columns
         h2 Register
         .row
           .small-12.columns
             label
+              | username
+              input(type='text' ng-model='loginForm.username')
+        .row
+          .small-12.columns
+            label
               | email
-              input(type='email' name='email' ng-model='loginForm.email')
+              input(type='email' ng-model='loginForm.email')
         .row
           .small-12.columns
             label
